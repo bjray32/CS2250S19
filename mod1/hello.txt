@@ -1,0 +1,4 @@
+vim in Linux
+This is another line.
+And another line
+Fourth line.
