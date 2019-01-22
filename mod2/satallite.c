@@ -37,7 +37,7 @@ int main()
     // Calculate Height = [(G M T^2)/(4pi^2)]^1/3 - R
     height = GRAVITY * E_MASS * pow(time, 2);  //numerator
     height = height / (4 * pow(PI, 2));  //denominator
-    height = pow(height, 1/3);
+    height = cbrt(height);
     height = height - E_RADIUS;
 
     //height = pow((GRAVITY * E_MASS * pow(time, 2)) / pow((4 * pow(time, 2)), 2)), (1/3));
