@@ -21,15 +21,21 @@
 
 int main()
 {
-    int num;
+    int num1, num2;
 
-    printf("Enter an Integer: ");
-    scanf("%d", &num);
+//    printf("Enter an Integer: ");
+    printf("Enter an Even and Odd Integer: ");
+    scanf("%d %d", &num1, &num2);
     // Test value for even or odd
-    if(num % 2 == 0)
+    if((num1 + num2) % 2 != 0)
     {
-        printf("%d is even\n", num);
+        printf("%d and %d are an even and odd number\n", num1, num2);
     }
+    else
+    {
+        printf("%d and %d are not an even and odd number\n", num1, num2);
+    }
+
     printf("Done\n");
 
 
