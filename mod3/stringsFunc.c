@@ -1,4 +1,5 @@
 /*
+ *
  * =====================================================================================
  *
  *       Filename:  stringsFunc.c
@@ -27,9 +28,11 @@ int main()
 
     printf("Input First and Last Name: ");
     scanf("%s %s", first, last);
-        printf("Hi [%s] [%s]\n", first, last);
-strcpy(fullName, first);
-printf("Your Full name is: [%s]\n", fullName);
+    printf("Hi [%s] [%s]\n", first, last);
+    strcpy(fullName, first);   // fullName = first
+    strcat(fullName, " ");     // fullName = fullName + " "
+    strcat(fullName, last);     // fullName = fullName + last
+    printf("Your Full name is: [%s]\n", fullName);
 
     return 0;
 }
