@@ -39,7 +39,12 @@ int main()
     x_pos = radius*cos(theta);
     y_pos = radius*sin(theta);
     // 4) Print the result
-    printf("Cartesian Coordinates: x = [%lf], y = [%lf]\n", x_pos, y_pos);
+    // %.2lf use obly 2 decimal places
+    // %6.2lf use only 2 decimal places, 6 chars wide
+    // %-6.2lf use only 2 decimal places, 6 chars wide, left justify
+    // %06.2lf use only 2 decimal places, 6 chars wide, zero patted
+    printf("Cartesian Coordinates: x = [%.2lf]\n", x_pos);
+    printf("Cartesian Coordinates: y = [%.2lf]\n", y_pos);
 
     return 0;
 }
