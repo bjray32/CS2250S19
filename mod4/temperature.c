@@ -16,8 +16,12 @@
  * =====================================================================================
  */
 #include <stdio.h>
+//const int CELSIUS = 0;
+//const int FAHRENHEIT = 1;
+#define CELSIUS 0
+#define FAHRENHEIT 1
 
-// Constants
+// The above constants are equivalent
 
 // Function Prototypes
 
@@ -35,7 +39,7 @@ int main()
     scanf("%d", &choice);
     // 2) Base pm choice calculate Celsius or Fahrenheit
     out_temp = 0;
-    if (choice == 0)
+    if (choice == CELSIUS)
     {
     printf("Enter the temperature in Celsius: ");
     scanf("%lf", &in_temp);
@@ -43,7 +47,7 @@ int main()
     out_temp = (in_temp * 9.0/5.0) + 32;
     printf("Your temperature in Fahrenheit is: %lf\n", out_temp);
     }
-    else if (choice == 1)
+    else if (choice == FAHRENHEIT)
     {
     printf("Enter the temperature in Fahrenheit: ");
     scanf("%lf", &in_temp);
