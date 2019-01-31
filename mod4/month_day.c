@@ -21,10 +21,19 @@
 // Main Function
 int main()
 {
-    // 1) Capture user input
-    
-    // 2) Use IF to validate month
 
+    // 1) Capture user input
+    int month;
+
+    printf("Enter Month (1-12): ");
+    scanf("%d", &month);
+
+    // 2) Use IF to validate month
+    if(month > 12 || month < 1)
+    {
+        printf("You have entered an invalid month\n");
+//            return 1;
+    }
     // 3) Use SWITCH to validate day of the month
 
 
