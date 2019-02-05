@@ -38,7 +38,7 @@ int main()
         count++;        // update test condition: sentinel
     }
     avg = total/MAXCOUNT;
-    printf("Your avg is [6.2%f]\n", avg);
+    printf("Your avg is [%6.2f]\n", avg);
     printf("\nBye amigo\n");
     return 0;
 }
