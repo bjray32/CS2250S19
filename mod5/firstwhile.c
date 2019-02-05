@@ -32,18 +32,16 @@ int main()
     float total = 0;
     while(count < MAXCOUNT)
     {
-        if ((grade >= 0) && (grade <= 100))
-        {
         printf("\nEnter %d hw grade(0-100) ", count +1);
         scanf("%f", &grade);
-
+        if ((grade < 0) || (grade > 100))
+        {
+            printf("Invalid input. Please try again.\n");
+            continue;   // invalid input
+        }
         total += grade;  // add up grade 
         count++;        // update test condition: sentinel
-        }
-        else
-        {
-            continue;
-        }
+        
     }
     avg = total/MAXCOUNT;
     printf("Your avg is [%6.2f]\n", avg);
