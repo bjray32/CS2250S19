@@ -20,6 +20,7 @@
 // Constants
 #define MINCOUNT 2
 #define MAXCOUNT 5
+#define MAXSTUDENTS
 
 // Main Function
 int main()
@@ -30,33 +31,38 @@ int main()
     // Task 4: If user enters a number below MINCOUNT set it MINCOUNT
     //         and if user enters a value greater than MAXCOUNT, set 
     //         it to MAXCOUNT 
-    int count = 0;
+    // Task 5: Support multiple student entries. Calulate class average.
+    // Task 6: Display student letter grade.
+    int grade_count = 0, student_count = 0;
     float grade, avg;
     float total = 0;
    // int MAXCOUNT = 0;
-    int student_count = 0;
+    int hw_count = 0;
+    
 
+    while(student_count < MAXSTUDENTS)
+    {
     printf("How many HW values to average (between %d and %d)? ", MINCOUNT ,MAXCOUNT);
-    scanf("%d", &student_count);
+    scanf("%d", &hw_count);
 
-    if (student_count < MINCOUNT)
+    if (hw_count < MINCOUNT)
     {
         printf("%d is lower than %d. Setting your entry to %d.\n", 
-                student_count, MINCOUNT, MINCOUNT);
-        student_count = MINCOUNT;
+                hw_count, MINCOUNT, MINCOUNT);
+        hw_count = MINCOUNT;
     }
-    if (student_count > MAXCOUNT)
+    if (hw_count > MAXCOUNT)
     {
         printf("%d is lower than %d. Setting your entry to %d.\n", 
-                student_count, MAXCOUNT, MAXCOUNT);
-        student_count = MAXCOUNT;
+                hw_count, MAXCOUNT, MAXCOUNT);
+        hw_count = MAXCOUNT;
     }
 
-    return 0;  //test
+//    return 0;  //test
 
-    while(count < MAXCOUNT)
+    while(grade_count < MAXCOUNT)
     {
-        printf("\nEnter %d HW grade(0-100) ", count +1);
+        printf("\nEnter %d HW grade(0-100) ", grade_count +1);
         scanf("%f", &grade);
         if ((grade < 0) || (grade > 100))
         {
@@ -64,15 +70,19 @@ int main()
             continue;   // invalid input
         }
         total += grade;  // add up grade 
-        count++;        // update test condition: sentinel
-        if(count == student_count)
+        grade_count++;        // update test condition: sentinel
+        if(grade_count == hw_count)
         {
-            break;    //reach the student_count
+            break;    //reach the hw_count
         }
         
     }
-    avg = total/student_count;
+    avg = total/hw_count;
     printf("Your Average is [%6.2f]\n", avg);
+
+    student_count++;
+    }
+
     printf("\nBye amigo\n");
     return 0;
 }
