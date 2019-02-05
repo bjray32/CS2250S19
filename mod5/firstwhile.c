@@ -40,8 +40,9 @@ int main()
     int hw_count = 0;
     
 
-    while(student_count < MAXSTUDENTS)
+    while(student_count <= MAXSTUDENTS)
     {
+        printf("processing %d student grades\n", student_count);
     printf("How many HW values to average (between %d and %d)? ", MINCOUNT ,MAXCOUNT);
     scanf("%d", &hw_count);
 
@@ -58,7 +59,6 @@ int main()
         hw_count = MAXCOUNT;
     }
 
-//    return 0;  //test
 
     while(grade_count < MAXCOUNT)
     {
@@ -76,12 +76,14 @@ int main()
             break;    //reach the hw_count
         }
         
-    }
+    }  // end of one student loop
     avg = total/hw_count;
     printf("Your Average is [%6.2f]\n", avg);
+    //reset value
+    grade_count = 0;
 
     student_count++;
-    }
+    }  // end of students loop
 
     printf("\nBye amigo\n");
     return 0;
