@@ -31,9 +31,9 @@ int main()
     for(int i = 0; i < NUM; i++)
     {
         printf("Enter a number: ");
-        // DO NOT use the address (&) operator
+        // Use the address (&) operator
         // Make sure you specify the inder position in [ ] 
-        scanf("%d", grades[i]);  // TODO: How do I save the values?
+        scanf("%d", &grades[i]);  //
     }
     printf("First number is [%d]\n", grades [0]);
     return 0;
