@@ -32,7 +32,7 @@ int main()
 {
     // Task 1: Calculate the average of user input values
     // Task 2: Validate user input for 0 to 100 0nly
-    // Task 3: Ask user how many values they need to enter
+    // Task 3: Generate random data on how many values they need to enter
     // Task 4: If user enters a number below MINCOUNT set it MINCOUNT
     //         and if user enters a value greater than MAXCOUNT, set 
     //         it to MAXCOUNT 
@@ -42,10 +42,10 @@ int main()
     float grade, avg;
     float total = 0;
     // int MAXCOUNT = 0;
-    int hw_count = 0;
+    int hw_count = 0, class_avg = 0;
 
-
-    while(student_count <= MAXSTUDENTS)
+    
+    for(student_count; student_count <= MAXSTUDENTS; student_count++)
     {
         printf("processing %d student grades\n", student_count);
         printf("How many HW values to average (between %d and %d)? ", MINCOUNT ,MAXCOUNT);
@@ -87,7 +87,6 @@ int main()
         //reset value
         grade_count = 0;
 
-        student_count++;
     }  // end of students loop
 
     printf("\nBye amigo\n");
