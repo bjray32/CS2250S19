@@ -25,7 +25,7 @@
 #define MAXCOUNT 5
 #define MAXGRADE 0
 #define MAXGRADE 100
-#define MAXSTUDENTS 3
+#define MAXSTUDENTS 5
 
 // Main Function
 int main()
@@ -44,13 +44,15 @@ int main()
     // int MAXCOUNT = 0;
     int hw_count = 0, class_avg = 0;
 
+    srand(time(0));
+
     
-    for(student_count; student_count <= MAXSTUDENTS; student_count++)
+    for(student_count = 1; student_count <= MAXSTUDENTS; student_count++)
     {
         printf("processing %d student grades\n", student_count);
         printf("How many HW values to average (between %d and %d)? ", MINCOUNT ,MAXCOUNT);
-        scanf("%d", &hw_count);
-
+        //scanf("%d", &hw_count);
+        hw_count = rand() % 10;
         if (hw_count < MINCOUNT)
         {
             printf("%d is lower than %d. Setting your entry to %d.\n", 
@@ -63,12 +65,12 @@ int main()
                     hw_count, MAXCOUNT, MAXCOUNT);
             hw_count = MAXCOUNT;
         }
-
-
+        // loop over studnet grades
         while(grade_count < MAXCOUNT)
         {
-            printf("\nEnter %d HW grade(0-100) ", grade_count +1);
-            scanf("%f", &grade);
+            printf("\nEnter %d HW grade(%d-%d) ", grade_count +1, MINGRADE, MAXGRADE);
+            //scanf("%f", &grade);
+            grade = rand () %
             if ((grade < 0) || (grade > 100))
             {
                 printf("Invalid input. Please try again.\n");
