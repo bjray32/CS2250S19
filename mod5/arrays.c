@@ -35,7 +35,10 @@ int main()
         // Make sure you specify the inder position in [ ] 
         scanf("%d", &grades[i]);  //
     }
-    printf("First number is [%d]\n", grades [0]);
+    for(int i = 0; i < NUM; i++)
+    {
+    printf("%d number is [%d]\n", i+1, grades[i]);
+    }
     return 0;
 }
 // Function Definitions
