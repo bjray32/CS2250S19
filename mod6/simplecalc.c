@@ -19,12 +19,15 @@
 #include <stdio.h>
 
 // Constants
-
+#define ADD 1
+#define SUB 2
+#define MUL 3
 // Function Prototypes
 
 // Main Function
 int main(int argc, char* argv[])
 {
+    int choice = 0;
     // Validate argument count, return 1 otherwise
 
     if(argc != 3)
@@ -33,6 +36,26 @@ int main(int argc, char* argv[])
         printf("Usage: ./%s <PARAM1> <PARAM2>\n", argv[0]);
         return 1;
     }
+    printf("What do you want to do with these numbers?\n");
+    printf("\t 1) Addition\n");
+    printf("\t 2) Subtration\n");
+    printf("\t 3) Multiplication\n");
+    scanf("%d", &choice);
+
+    switch (choice) 
+    {
+        case ADD:
+            break;
+
+        case SUB:
+            break;
+
+        case MUL:
+            break;
+
+        default:
+           printf("Unsupported function\n");
+    }				/* -----  end switch  ----- */
 
     printf("Adios amigo\n");
     return 0;
