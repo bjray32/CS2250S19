@@ -22,7 +22,8 @@
 
 // Function Prototypes
 void DisplayPosition(double x, double y);
-void UpdatePosition(double x, double y, double new_x, double new_y);
+void DisplayOrigPosition(double* x, double* y);
+void UpdatePosition(double* x, double* y, double new_x, double new_y);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -37,9 +38,10 @@ int main(int argc, char* argv[])
     }
     x = atof(argv[1]);  // Convert the first input param to double
     y = atof(argv[2]);  // Convert the second input param to double
-    DisplayPosition(x, y);
-    UpdatePosition(x, y, 2, 4);
-    DisplayPosition(x, y);
+    printf("Your current original position address is (%p, %p)\n", &x, &y);
+    DisplayOrigPosition(&x, &y);   //  takes two address of type double
+    UpdatePosition(&x, &y, 2.0, 4.1);
+    DisplayOrigPosition(&x, &y);   //  takes two address of type double
 
     return 0;
 }
@@ -56,31 +58,46 @@ int main(int argc, char* argv[])
  */
 void DisplayPosition(double x, double y)
 {
-    printf("Your initial position is (%4.2lf, %4.2lf)\n", x, y);
+    printf("Your current position is (%4.2lf, %4.2lf)\n", x, y);
+    printf("Your current position address is (%p, %p)\n", &x, &y);
     return;
 }
-
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  DisplayOrigPosition
+ *  Description:  Display current point position of actual values
+ *        Param:  x => x coordinate
+ *        Param:  y => y coordinate
+ *      Returns:  N/A
+ * =====================================================================================
+ */
+void DisplayOrigPosition(double* x, double* y)
+{
+    printf("Your current position address is (%4.2lf, %4.2lf) (orig)\n", *x, *y);
+    printf("Your current original position address is (%p, %p) (orig)\n", x, y);
+    // To display the values of pointers/address use the
+    // dereference operator " * ". This only applies to pointers
+    // When dealing with pointers (address) the value of whatever needs the star
+    return;
+}
 
 
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  UpdatePosition
  *  Description:  Update point point position to a new position
- *        Param:  x => x coordinate
- *        Param:  y => y coordinate
+ *        Param:  x => x coordinate address
+ *        Param:  y => y coordinate address
  *        Param:  x_new => new x coordinate
  *        Param:  y_new => new y coordinate
  *      Returns:  N/A
  * =====================================================================================
  */
-void UpdatePosition(double x, double y, double new_x, double new_y)
+void UpdatePosition(double* x, double* y, double new_x, double new_y)
 {
     printf("******Updating Position*******\n");
-    DisplayPosition(x, y);
-    x = new_x;
-    y = new_y;
-    DisplayPosition(x, y);
-    printf("******Done Updating Position*******\n");
+    *x = new_x;  // Dereference the pointer to update the value
+    *y = new_y;
 
     return;
 }
