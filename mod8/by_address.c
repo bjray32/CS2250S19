@@ -22,7 +22,7 @@
 
 // Function Prototypes
 void DisplayPosition(double x, double y);
-void DisplayOrigPosition(double* x, double* y);
+void DisplayOrigPosition(const double* x, const double* y);
 void UpdatePosition(double* x, double* y, double new_x, double new_y);
 void ResetPosition(double* x, double* y);
 
@@ -75,13 +75,14 @@ void DisplayPosition(double x, double y)
  *      Returns:  N/A
  * =====================================================================================
  */
-void DisplayOrigPosition(double* x, double* y)
+void DisplayOrigPosition(const double* x, const double* y)
 {
     printf("Your current position address is (%4.2lf, %4.2lf) (orig)\n", *x, *y);
 //    printf("Your current original position address is (%p, %p) (orig)\n", x, y);
     // To display the values of pointers/address use the
     // dereference operator " * ". This only applies to pointers
     // When dealing with pointers (address) the value of whatever needs the star
+    
     return;
 }
 
