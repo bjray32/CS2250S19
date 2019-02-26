@@ -5,6 +5,10 @@ const int NUM_PLAYERS = 2;
 // Function Prototypes
 void GetUserNumberAndRating(int nums[], int ratings[]);
 void DisplayRoster(int nums[], int ratings[]);
+void UpdatePlayerRating(int nums[], int ratings[]);
+void DisplayRosterAboveRating(int nums[], int ratings[]);
+void ReplacePlayer(int nums[], int ratings[]);
+char DisplayMenu();
 
 // Main Function
 int main()
@@ -25,6 +29,8 @@ int main()
 
     // Menu
     do {
+        menuOp = DisplayMenu();
+
         printf("\nMENU\n");
         printf("u - Update player rating\n");
         printf("a - Output players above a rating\n");
@@ -36,23 +42,8 @@ int main()
         scanf(" %c", &menuOp);
 
 
-        //Update
-        if (menuOp == 'u') 
-        {
-            printf("Enter a jersey number:\n");
-            scanf("%d", &playerJersy);
-
-            printf("Enter a new rating for player:\n");
-            scanf("%d", &playerRating);
-
-            for (i = 0; i < NUM_PLAYERS; ++i) 
-            {
-                if (jerseyNums[i] == playerJersy) 
-                {
-                    ratingNums[i] = playerRating;
-                }
-            }
-        }
+    //Update
+    UpdatePlayerRating(jerseyNums, ratingNums);
 
         // Output players above a user defined rating
         else if (menuOp == 'a') 
@@ -123,7 +114,6 @@ int main()
  *         Note:  We will link both arrays by index notation
  * =====================================================================================
  */
-
 void GetUserNumberAndRating(int nums[], int ratings[])
 {
     for (int i = 0; i < NUM_PLAYERS; ++i) 
@@ -135,9 +125,7 @@ void GetUserNumberAndRating(int nums[], int ratings[])
         scanf("%d", &(ratings[i]));
         printf("\n");
     }
-
 }
-
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  DisplayRoster
@@ -154,12 +142,36 @@ void DisplayRoster(int nums[], int ratings[])
     {
         printf("Player %d -- Jersey number: %d, Rating: %d\n", (i + 1), nums[i], ratings[i]);
     }
-
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  UpdatePlayerRating
+ *  Description:  Change the player rating by selecting jersey number
+ *  Param: nums:  Array of int numbers
+ *  Param: ratings:  Array of int ratings
+ * =====================================================================================
+ */
+void UpdatePlayerRating(int nums[], int ratings[])
+{
+        if (menuOp == 'u') 
+        {
+            printf("Enter a jersey number:\n");
+            scanf("%d", &playerJersy);
 
+            printf("Enter a new rating for player:\n");
+            scanf("%d", &playerRating);
 
+            for (i = 0; i < NUM_PLAYERS; ++i) 
+            {
+                if (jerseyNums[i] == playerJersy) 
+                {
+                    ratingNums[i] = playerRating;
+                }
+            }
+        }
+}
 
 
 
